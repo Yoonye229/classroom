@@ -19,11 +19,11 @@ function SideBar() {
      </div> 
      <nav className={sidebar ? 'nav-menu-active':'nav-menu'}>
             <ul className='nav-menu-items' onClick={showSidebar}>
-                <li className='navbar-toggle'>
+                {/* <li className='navbar-toggle'>
                     <Link to = "#" className='menu-bars'>
                         <AiIcons.AiOutlineClose />  
-                    </Link>
-                </li>
+                    </Link> 
+                </li> */}
                 {SidebarData.map((item, index)=>{
                     return(
                         <li key={index} className={item.cName}>
@@ -37,6 +37,10 @@ function SideBar() {
             </ul>
      </nav>
      </IconContext.Provider>
+     <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </>
   )
 }

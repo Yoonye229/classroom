@@ -1,7 +1,7 @@
 
 import './App.css';
 
-// import Home from './components/Home'
+import Home from './Pages/Home'
 import SideBar from './components/SideBar';
 
 import {BrowserRouter as Router , Routes , Route} from 'react-router-dom';
@@ -9,13 +9,14 @@ function App()
 {
   return(
     <div class="App">
-          {/* <Home/>  */}
+          
           <Router>
             <SideBar/>
             <Routes>
               <Route path='/'/>
             </Routes>
           </Router>
+          <Home/> 
           <h1>aakpfhai</h1>
         
      

@@ -1,8 +1,8 @@
 
 import './App.css';
 
-import Home from './Pages/Home'
-import SideBar from './components/SideBar';
+ import Home from './Pages/Home'
+//import SideBar from './components/SideBar';
 
 import {BrowserRouter as Router , Routes , Route} from 'react-router-dom';
 function App()
@@ -11,13 +11,13 @@ function App()
     <div class="App">
           
           <Router>
-            <SideBar/>
+            
             <Routes>
-              <Route path='/'/>
-            </Routes>
+              <Route path='/' element={<Home/>}/>
+            </Routes> 
           </Router>
-          <Home/> 
-          <h1>aakpfhai</h1>
+      
+          
         
      
     </div>

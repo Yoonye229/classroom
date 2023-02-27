@@ -1,50 +1,80 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-
+import SideBar from '../components/SideBar';
 import React from 'react';
+import "../components/css/SideBar.css"
+export default function Home() {
 
-class Home extends React.Component {
-    render(){
  return(
+  
+  <div class="container">
+                    <div class="row">
+                    <SideBar/>
+                        
+                            <h1>Fancy Toggle Sidebar Navigation</h1>
+                            <p>
+                                Bacon ipsum dolor sit amet tri-tip shoulder
+                                tenderloin shankle. Bresaola tail pancetta ball
+                                tip doner meatloaf corned beef. Kevin pastrami
+                                tri-tip prosciutto ham hock pork belly bacon
+                                pork loin salami pork chop shank corned beef
+                                tenderloin meatball cow. Pork bresaola meatloaf
+                                tongue, landjaeger tail andouille strip steak
+                                tenderloin sausage chicken tri-tip. Pastrami
+                                tri-tip kielbasa sausage porchetta pig sirloin
+                                boudin rump meatball andouille chuck tenderloin
+                                biltong shank{" "}
+                            </p>
+                            <p>
+                                Pig meatloaf bresaola, spare ribs venison short
+                                loin rump pork loin drumstick jowl meatball
+                                brisket. Landjaeger chicken fatback pork loin
+                                doner sirloin cow short ribs hamburger shoulder
+                                salami pastrami. Pork swine beef ribs t-bone
+                                flank filet mignon, ground round tongue. Tri-tip
+                                cow turducken shank beef shoulder bresaola
+                                tongue flank leberkas ball tip.
+                            </p>
+                            <p>
+                                Filet mignon brisket pancetta fatback short ribs
+                                short loin prosciutto jowl turducken biltong
+                                kevin pork chop pork beef ribs bresaola. Tongue
+                                beef ribs pastrami boudin. Chicken bresaola
+                                kielbasa strip steak biltong. Corned beef pork
+                                loin cow pig short ribs boudin bacon pork belly
+                                chicken andouille. Filet mignon flank turkey
+                                tongue. Turkey ball tip kielbasa pastrami flank
+                                tri-tip t-bone kevin landjaeger capicola tail
+                                fatback pork loin beef jerky.
+                            </p>
+                            <p>
+                                Chicken ham hock shankle, strip steak ground
+                                round meatball pork belly jowl pancetta sausage
+                                spare ribs. Pork loin cow salami pork belly.
+                                Tri-tip pork loin sausage jerky prosciutto
+                                t-bone bresaola frankfurter sirloin pork chop
+                                ribeye corned beef chuck. Short loin hamburger
+                                tenderloin, landjaeger venison porchetta strip
+                                steak turducken pancetta beef cow leberkas
+                                sausage beef ribs. Shoulder ham jerky kielbasa.
+                                Pig doner short loin pork chop. Short ribs
+                                frankfurter rump meatloaf.
+                            </p>
+                            <p>
+                                Filet mignon biltong chuck pork belly, corned
+                                beef ground round ribeye short loin rump swine.
+                                Hamburger drumstick turkey, shank rump biltong
+                                pork loin jowl sausage chicken. Rump pork belly
+                                fatback ball tip swine doner pig. Salami jerky
+                                cow, boudin pork chop sausage tongue andouille
+                                turkey.
+                            </p>
+                        </div>
+                    </div>
+                
+                
+
+  );
  
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"/></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
- );
- }
 }
 
-export default Home;

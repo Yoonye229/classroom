@@ -2,7 +2,8 @@
 import './App.css';
 
 import Home from './Pages/Home'
-import SideBar from './components/SideBar';
+import SignUp from './Pages/Signup';
+import SignInSide from './Pages/Login'
 
 import {BrowserRouter as Router , Routes , Route} from 'react-router-dom';
 function App()
@@ -11,13 +12,12 @@ function App()
     <div class="App">
           
           <Router>
-            <SideBar/>
             <Routes>
-              <Route path='/'/>
+              <Route path='/'element={<SignInSide/>}/>
+              <Route path='/home' element={<Home/>}/>
+              <Route path='/signup' element={<SignUp/>}/>
             </Routes>
           </Router>
-          <Home/> 
-          <h1>aakpfhai</h1>
         
      
     </div>

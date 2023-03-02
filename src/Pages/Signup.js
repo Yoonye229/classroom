@@ -3,6 +3,8 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
@@ -12,6 +14,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 
 // function Copyright(props) {
 //   return (
@@ -37,7 +40,12 @@ export default function SignUp() {
       password: data.get('password'),
     });
   };
-
+  const [position, setPosition] = React.useState('');
+  
+  const handleChange = (event) => {
+    const position =event.target.value;
+    setPosition(position);
+  };
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -99,6 +107,29 @@ export default function SignUp() {
                   id="password"
                   autoComplete="new-password"
                 />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="address"
+                  label="Address"
+                  type="address"
+                  id="address"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Select
+                  required
+                  fullWidth
+                  value={position}
+                  label="Position"
+                  id="position"
+                  onChange={handleChange}
+                >
+                    <MenuItem value="student">Student</MenuItem>
+                    <MenuItem value="teacher">Teacher</MenuItem>
+                </Select>
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel

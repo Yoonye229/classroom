@@ -1,8 +1,8 @@
 
 import './App.css';
 
- import Home from './Pages/Home'
-//import SideBar from './components/SideBar';
+import Home from './Pages/Home'
+//import SideBar from './components/SideBar'
 
 import {BrowserRouter as Router , Routes , Route} from 'react-router-dom';
 function App()
@@ -14,6 +14,7 @@ function App()
             
             <Routes>
               <Route path='/' element={<Home/>}/>
+              {/* <Route path='/AddClass' element={<AddClass/>}> </Route> */}
             </Routes> 
           </Router>
       
@@ -24,4 +25,3 @@ function App()
   )
 }
 export default App
- 

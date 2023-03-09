@@ -43,10 +43,10 @@ function SideBar() {
             >
                 <ul class="nav sidebar-nav">
                     <li class="sidebar-brand">
-                        <a href="#">Brand</a>
+                        <a href="#">MPKA</a>
                     </li>
                     <li>
-                        <a href="#">Home</a>
+                        <a href="https://classroom.google.com/u/0/c/NTYwNDEzMDM0NDIw">Lớp Học</a>
                     </li>
                     <li>
                         <a href="#">About</a>

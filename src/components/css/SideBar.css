@@ -58,6 +58,10 @@
      
     width: 40%;
 }
+
+.hamburger.is-closed{
+    left :0;
+}
 .navbar-toggle {
     background-color:white;
     width: 100%;
@@ -336,7 +340,7 @@ span{
   }
   .hamburger.is-closed .hamb-top {
     top: 5px;
-    -webkit-transition: all 0.35s ease-in-out;
+    --webkit-transition: all 0.35s ease-in-out;
   }
   .hamburger.is-closed .hamb-middle {
     top: 50%;
@@ -344,16 +348,16 @@ span{
   }
   .hamburger.is-closed .hamb-bottom {
     bottom: 5px;
-    -webkit-transition: all 0.35s ease-in-out;
+    --webkit-transition: all 0.35s ease-in-out;
   }
   
   .hamburger.is-closed:hover .hamb-top {
     top: 0;
-    -webkit-transition: all 0.35s ease-in-out;
+    --webkit-transition: all 0.35s ease-in-out;
   }
   .hamburger.is-closed:hover .hamb-bottom {
     bottom: 0;
-    -webkit-transition: all 0.35s ease-in-out;
+    --webkit-transition: all 0.35s ease-in-out;
   }
   .hamburger.is-open .hamb-top,
   .hamburger.is-open .hamb-middle,
@@ -366,15 +370,15 @@ span{
     margin-top: -2px;
   }
   .hamburger.is-open .hamb-top {
-    -webkit-transform: rotate(45deg);
-    -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.73, 1, 0.28, 0.08);
+    --webkit-transform: rotate(45deg);
+    --webkit-transition: -webkit-transform 0.2s cubic-bezier(0.73, 1, 0.28, 0.08);
   }
   .hamburger.is-open .hamb-middle {
     display: none;
   }
   .hamburger.is-open .hamb-bottom {
-    -webkit-transform: rotate(-45deg);
-    -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.73, 1, 0.28, 0.08);
+    --webkit-transform: rotate(-45deg);
+    --webkit-transition: -webkit-transform 0.2s cubic-bezier(0.73, 1, 0.28, 0.08);
   }
   .hamburger.is-open:before {
     content: "";
@@ -385,14 +389,14 @@ span{
     line-height: 32px;
     text-align: center;
     opacity: 0;
-    -webkit-transform: translate3d(0, 0, 0);
-    -webkit-transition: all 0.35s ease-in-out;
+    --webkit-transform: translate3d(0, 0, 0);
+    --webkit-transition: all 0.35s ease-in-out;
   }
   .hamburger.is-open:hover:before {
     opacity: 1;
     display: block;
-    -webkit-transform: translate3d(-100px, 0, 0);
-    -webkit-transition: all 0.35s ease-in-out;
+    --webkit-transform: translate3d(-100px, 0, 0);
+    --webkit-transition: all 0.35s ease-in-out;
   }
   
   /*-------------------------------*/

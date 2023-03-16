@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import * as React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
@@ -126,11 +125,4 @@ export default function SignInSide() {
       </Grid>
     </ThemeProvider>
   );
-=======
-import React from "react";
-function login(){
-    return(
-       <></>
-    );
->>>>>>> e8516f45fab7f3e599c5ac5a716ced1a8ee26d39
 }

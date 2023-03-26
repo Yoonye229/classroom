@@ -22,15 +22,15 @@ const signinUser = async (req, res) =>{
 }
 //Sign up controller 
 const signupUser = async (req, res) =>{
-    const {firstname, lastname, email, password, address, role} =req.body
+    const {firstname , email, password, educator} =req.body
 
     try{
-        const user = await User.signup(firstname, lastname, email, password, address, role)
+        const user = await User.signup(firstname, email, password, educator)
 
         //create a token 
         const token = createToken(user._id)
 
-        res.status(200).json({firstname, lastname, email, token, address, role})
+        res.status(200).json({firstname, email, token, educator})
     }catch(error){
         res.status(400).json({error: error.message})
     }

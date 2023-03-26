@@ -21,11 +21,8 @@ const theme = createTheme();
 const SignUp = () => {
   
   const [firstname, setFirstname] = useState("")
-  const [lastname, setLastname] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [address, setAddress] = useState("")
-  const [role, setRole] = useState("")
   const {signup, error, isLoading} = useSignup()
 
   const handleSubmit = async (e) => {
@@ -33,13 +30,10 @@ const SignUp = () => {
     
     await signup(
        firstname,
-       lastname, 
-       address, 
-       role, 
        email, 
        password
        )
-    console.log(firstname,lastname,email,password,address,role)
+    console.log(firstname,email,password)
   };
   
 
@@ -63,20 +57,13 @@ const SignUp = () => {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                  <TextField 
                   name='first name'
-                  label="First name"
+                  label="Tên của bạn"
+                  fullWidth
                   onChange={(e) =>setFirstname(e.target.value)}
                   value={firstname}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  name='last name'
-                  label="last name"
-                  onChange={(e) =>setLastname(e.target.value)}
-                  value={lastname}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -84,7 +71,7 @@ const SignUp = () => {
                   name='email'
                   type={'email'}
                   fullWidth
-                  label="Email address"
+                  label="Email"
                   onChange={(e) =>setEmail(e.target.value)}
                   value={email}
                 />
@@ -99,27 +86,6 @@ const SignUp = () => {
                   value={password}
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  name='address'
-                  label="Your address"
-                  onChange={(e) =>setAddress(e.target.value)}
-                  value={address}
-                />
-              </Grid>
-              <Grid item xs={12}> 
-                <Select
-                  required
-                  fullWidth
-                  name='role'
-                  onChange={(e) =>setRole(e.target.value)}
-                  value={role}
-                >
-                    <MenuItem value="student">Student</MenuItem>
-                    <MenuItem value="teacher">Teacher</MenuItem>
-                </Select>
-              </Grid>
               
             </Grid>
             <Button
@@ -130,13 +96,13 @@ const SignUp = () => {
               sx={{ mt: 3, mb: 2 }}
               disabled={isLoading}
             >
-              Sign Up
+              Đăng ký
             </Button>
             {error && <div className='error'>{error}</div>}
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link component={RouterLink} to="/"variant="body2">
-                  {"Already have an account? Sign in"}
+                  {"Bạn đã có tài khoản? Hãy đăng nhập"}
                 </Link>
               </Grid>
             </Grid>

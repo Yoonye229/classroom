@@ -20,6 +20,10 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
+    educator:{
+        type: Boolean,
+        default: false
+    }
     
 });
 

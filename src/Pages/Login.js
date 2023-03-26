@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-import * as React from 'react';
+import { useState }from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -14,19 +13,6 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-// function Copyright(props) {
-//   return (
-//     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://mui.com/">
-//         Your Website
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
 
 const theme = createTheme();
 
@@ -72,7 +58,7 @@ export default function SignInSide() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              ĐĂNG NHẬP
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
@@ -97,7 +83,7 @@ export default function SignInSide() {
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
+                label="Nhớ mật khẩu"
               />
               <Button
                 type="submit"
@@ -105,32 +91,24 @@ export default function SignInSide() {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                ĐĂNG NHẬP
               </Button>
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
-                    Forgot password?
+                    Quên mật khẩu?
                   </Link>
                 </Grid>
                 <Grid item>
                   <Link component={RouterLink} to="/SignUp"variant="body2">
-                    {"Don't have an account? Sign Up"}
+                    {"Hãy đăng ký tài khoản"}
                   </Link>
                 </Grid>
               </Grid>
-              {/* <Copyright sx={{ mt: 5 }} /> */}
             </Box>
           </Box>
         </Grid>
       </Grid>
     </ThemeProvider>
   );
-=======
-import React from "react";
-function login(){
-    return(
-       <></>
-    );
->>>>>>> e8516f45fab7f3e599c5ac5a716ced1a8ee26d39
 }

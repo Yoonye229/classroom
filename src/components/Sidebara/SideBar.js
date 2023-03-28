@@ -1,5 +1,5 @@
 
-import React ,{useState} from 'react'
+import {useState} from 'react'
 // import * as FaIcons from "react-icons/fa";
 // import * as AiIcons from 'react-icons/ai';
 // import { Link } from 'react-router-dom';
@@ -8,6 +8,8 @@ import * as ImIcons from 'react-icons/im';
 import { SidebarData } from './SidebarData';
 import './css/SideBar.css';
 // import { IconContext } from 'react-icons';
+
+
 function SideBar() {
     const [isClosed, setIsClosed] = useState(false);
     const toggleOffCanvas = () => {
@@ -98,17 +100,6 @@ function SideBar() {
             </nav>
 
             <div id="page-content-wrapper">
-                {/* <button
-                    type="button"
-                    class="hamburger is-closed"
-                    data-toggle="offcanvas"
-                    onClick={hamburgerCross}
-                >
-                    new
-                </button>
-                <button data-toggle="offcanvas" onClick={toggleOffCanvas}>
-                    old
-                </button> */}
                 <button
                     type="button"
                     class="hamburger is-closed"

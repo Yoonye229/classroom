@@ -40,6 +40,6 @@ li{
     cursor: pointer;
     text-transform: capitalize;
 }
-.button{
-    margin-top: 9px;
+.right-content{
+    justify-content: space-between;
 }

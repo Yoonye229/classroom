@@ -24,8 +24,13 @@ export default function SignInSide() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     await login (email, password)
+    .then(setTimeout(() =>{
+      alert("Đăng nhập thành công")
+    }),1000)
+    .then(
+      window.location.href = "/"
+    )
   };
 
   return (
@@ -94,6 +99,7 @@ export default function SignInSide() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                disabled={isLoading}
               >
                 ĐĂNG NHẬP
               </Button>

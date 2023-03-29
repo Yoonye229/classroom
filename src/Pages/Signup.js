@@ -23,6 +23,7 @@ const SignUp = () => {
   const [firstname, setFirstname] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [educator, setIsEducator] = useState(false)
   const {signup, error, isLoading} = useSignup()
 
   const handleSubmit = async (e) => {
@@ -31,9 +32,10 @@ const SignUp = () => {
     await signup(
        firstname,
        email, 
-       password
+       password,
+       educator
        )
-    console.log(firstname,email,password)
+    console.log(firstname,email,password,educator)
   };
   
 
@@ -85,8 +87,21 @@ const SignUp = () => {
                   onChange={(e) =>setPassword(e.target.value)}
                   value={password}
                 />
+                
               </Grid>
-              
+              <Grid item xs={12}>
+                <Select
+                  required
+                  fullWidth
+                  label="Your role"
+                  id="position"
+                  onChange={(e) => setIsEducator(e.target.value)}
+                  value={educator}
+                >
+                    <MenuItem value="false">Student</MenuItem>
+                    <MenuItem value="true">Teacher</MenuItem>
+                </Select>
+              </Grid>
             </Grid>
             <Button
               component="button"

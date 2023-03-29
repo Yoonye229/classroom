@@ -1,6 +1,7 @@
 
 import Home from './Pages/Home'
-
+import SignUp from './Pages/Signup'
+import SignInSide from './Pages/Login'
 import {BrowserRouter as Router , Routes , Route} from 'react-router-dom';
 
 function App()

@@ -1,41 +1,37 @@
-#add{
-    display: flex;
-    margin-left: 100px;
-    
+#add {
+  display: flex;
+  margin-left: 100px;
 }
-#add svg{
-    font-size: 30px;
+#add svg {
+  font-size: 30px;
 }
 #add {
-    display: block;
-    text-align: center;
-    border-radius: 50%;
-    
+  display: block;
+  text-align: center;
+  border-radius: 50%;
 }
-button:focus{
-    outline: none;
+button:focus {
+  outline: none;
+}
+h4 {
+  display: flex;
+  justify-content: flex-start;
+}
+.modal-content {
+  position: absolute;
+  width: 100%;
 
+  padding: 1px 40px 16px 40px;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+  top: 25%;
 }
-h4{
-    display: flex;
-    justify-content: flex-start;
-}
-.modal-content{
-    position: absolute;
-    width: 100%;
-    
-    padding: 1px 40px 16px 40px;
-    background: white;
-    border-radius: 10px;
-    text-align: center;
-    top:25%;
-  
-}
- .modal-content .User{
+.modal-content .Avatar {
   margin-top: 20px;
   position: relative;
- }
- .modal-content .User input{
+}
+.modal-content .Avatar input {
   width: 100%;
   background: transparent;
   color: rgb(75, 75, 122);
@@ -45,7 +41,7 @@ h4{
   padding: 10px 0;
   font-size: 16px;
 }
-.modal-content .User label{
+.modal-content .Avatar label {
   letter-spacing: 2px;
   position: absolute;
   top: 0;
@@ -54,30 +50,29 @@ h4{
   font-size: 16px;
   color: #bbb;
   pointer-events: none;
-  transition:0.4s ease ;
+  transition: 0.4s ease;
 }
-.modal-content .User input:focus~label,
-.modal-content .User input:focus~label{
+.modal-content .Avatar input:focus ~ label,
+.modal-content .Avatar input:focus ~ label {
   top: -20px;
   color: rgb(36, 36, 172);
   font-size: 12px;
-
 }
-.modal-content .Class{
+.modal-content .Name {
   position: relative;
   margin-top: 20px;
- }
- .modal-content .Class input{
+}
+.modal-content .Name input {
   width: 100%;
   background: transparent;
-  color: rgb(75, 75, 122);;
+  color: rgb(75, 75, 122);
   border: none;
   border-bottom: 1px solid rgb(36, 36, 172);
   outline: none;
   padding: 10px 0;
   font-size: 16px;
 }
-.modal-content .Class label{
+.modal-content .Name label {
   letter-spacing: 2px;
   position: absolute;
   top: 0;
@@ -86,30 +81,29 @@ h4{
   font-size: 16px;
   color: #bbb;
   pointer-events: none;
-  transition:0.4s ease ;
+  transition: 0.4s ease;
 }
-.modal-content .Class input:focus~label,
-.modal-content .Class input:focus~label{
+.modal-content .Name input:focus ~ label,
+.modal-content .Name input:focus ~ label {
   top: -20px;
   color: rgb(36, 36, 172);
   font-size: 12px;
-
 }
-.modal-content .Teacher{
+.modal-content .Password {
   position: relative;
   margin-top: 20px;
- }
- .modal-content .Teacher input{
+}
+.modal-content .Password input {
   width: 100%;
   background: transparent;
-  color: rgb(75, 75, 122);;
+  color: rgb(75, 75, 122);
   border: none;
   border-bottom: 1px solid rgb(36, 36, 172);
   outline: none;
   padding: 10px 0;
   font-size: 16px;
 }
-.modal-content .Teacher label{
+.modal-content .Password label {
   letter-spacing: 2px;
   position: absolute;
   top: 0;
@@ -118,17 +112,47 @@ h4{
   font-size: 16px;
   color: #bbb;
   pointer-events: none;
-  transition:0.4s ease ;
+  transition: 0.4s ease;
 }
-.modal-content .Teacher input:focus~label,
-.modal-content .Teacher input:focus~label{
+.modal-content .Password input:focus ~ label,
+.modal-content .Password input:focus ~ label {
   top: -20px;
   color: rgb(36, 36, 172);
   font-size: 12px;
-
-} 
- .modal-content .btnAdd{
-  background-color: white; 
+}
+.modal-content .Role {
+  margin-top: 20px;
+  position: relative;
+}
+.modal-content .Role input {
+  width: 100%;
+  background: transparent;
+  color: rgb(75, 75, 122);
+  border: none;
+  border-bottom: 1px solid rgb(36, 36, 172);
+  outline: none;
+  padding: 10px 0;
+  font-size: 16px;
+}
+.modal-content .Role label {
+  letter-spacing: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  font-size: 16px;
+  color: #bbb;
+  pointer-events: none;
+  transition: 0.4s ease;
+}
+.modal-content .Role input:focus ~ label,
+.modal-content .Role input:focus ~ label {
+  top: -20px;
+  color: rgb(36, 36, 172);
+  font-size: 12px;
+}
+.modal-content .btnAdd {
+  background-color: white;
   border: none;
   color: rgb(36, 36, 172);
   padding: 15px 32px;
@@ -137,8 +161,8 @@ h4{
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
-  cursor: pointer; 
+  cursor: pointer;
 }
-.modal-content .btnAdd:hover {  
-  opacity: 0.8;  
-} 
+.modal-content .btnAdd:hover {
+  opacity: 0.8;
+}

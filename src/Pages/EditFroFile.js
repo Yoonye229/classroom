@@ -1,9 +1,8 @@
 import { Button } from '@mui/material';
 import React, { useState } from 'react';
-import './css/ButtonAdd.css';
-import * as GrIcons from 'react-icons/gr';
-import { SpatialTracking } from '@mui/icons-material';
-function AddCourseButton() {
+import '../components/Sidebara/css/ButtonAdd.css';
+
+function Edit() {
   const [popup, setPop] = useState(false);
   const clickButton = () => {
     setPop(!popup);
@@ -19,13 +18,18 @@ function AddCourseButton() {
         data-toggle="modal"
         data-target="#exampleModalCenter"
       >
-        <GrIcons.GrFormAdd />
+        <input
+          type="submit"
+          className="profile-edit-btn"
+          name="btnAddmore"
+          value={'Edit'}
+        />
       </Button>
 
       <div
         className="modal fade"
         id="exampleModalCenter"
-        tabindex="-1"
+        tabIndex="-1"
         role="dialog"
         aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true"
@@ -35,7 +39,7 @@ function AddCourseButton() {
             <div className="modal-header">
               <button
                 type="button"
-                class="close"
+                className="close"
                 data-dismiss="modal"
                 aria-label="Close"
               >
@@ -45,28 +49,32 @@ function AddCourseButton() {
 
             <div>
               <div className="popup-header">
-                <h4>Thêm mới lớp học</h4>
+                <h4>Thay đổi thông tin</h4>
               </div>
-              <div className="User">
-                <input type="text" name="class_name" required="" />
-                <label for=""> Tên lớp</label>
-                <div className="Class">
-                  <input type="text" name="num_students" />
-                  <label for="">Sĩ số</label>
-                </div>
-                <div className="Teacher">
-                  <input name="description" type="text"></input>
-                  <label for="">Giảng viên hướng dẫn</label>
+              <div className="Avatar">
+                <input type="folder" name="user-avatar" />
+                <label for="">Ảnh đại diện</label>
+                <div className="Name">
+                  <input type="text" name="user-name" />
+                  <label for="">Tên</label>
                 </div>
               </div>
-              <button className="btnAdd">Tạo</button>
+              <div className="Password">
+                <input name="description" type="password"></input>
+                <label for="">Mật khẩu</label>
+              </div>
+              <div className="Role">
+                <input name="role" type="text"></input>
+                <label for="">Vai trò</label>
+              </div>
             </div>
+            <button className="btnAdd">Thay đổi</button>
           </div>
         </div>
-        <div class="modal-footer"></div>
       </div>
+      <div className="modal-footer"></div>
     </div>
   );
 }
-export default AddCourseButton;
+export default Edit;
 // tạo function click button chạy qua trang AddClass.js

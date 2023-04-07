@@ -1,0 +1,56 @@
+.border {
+  display: flex;
+  width: 700px;
+  height: 600px;
+}
+.profile {
+  position: absolute;
+  top: 100px;
+  left: 310px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 10px inset;
+  width: 60%;
+  flex-direction: column;
+  height: 500px;
+}
+img {
+  width: 100%;
+  height: 350px;
+}
+.profile-head {
+  position: relative;
+  width: 25%;
+  border-radius: 80%;
+  object-fit: cover;
+  height: 280px;
+  border: 4px solid green;
+  overflow: hidden;
+}
+.myfile {
+  position: absolute;
+  bottom: 0;
+  outline: none;
+  color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 17px 40px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.myfile::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.profile-edit-btn {
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}

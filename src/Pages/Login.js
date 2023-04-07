@@ -1,4 +1,4 @@
-import { useState }from 'react';
+import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -15,22 +15,21 @@ import Typography from '@mui/material/Typography';
 import { useLogin } from '../hooks/useLogin';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+
 const theme = createTheme();
 
 export default function SignInSide() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const {login, error, isLoading} = useLogin()
-
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { login, error, isLoading } = useLogin();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login (email, password)
-    .then(setTimeout(() =>{
-      alert("Đăng nhập thành công")
-    }),1000)
-    .then(
-      window.location.href = "/"
-    )
+    await login(email, password)
+      .then(
+          alert('Đăng nhập thành công')
+      )
+      .then((window.location.href = '/'))
+      .catch(error)
   };
 
   return (
@@ -43,10 +42,13 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)',
+            backgroundImage:
+              'url(https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+              t.palette.mode === 'light'
+                ? t.palette.grey[50]
+                : t.palette.grey[900],
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -67,7 +69,12 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
               ĐĂNG NHẬP
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box
+              component="form"
+              noValidate
+              onSubmit={handleSubmit}
+              sx={{ mt: 1 }}
+            >
               <TextField
                 margin="normal"
                 required
@@ -103,7 +110,7 @@ export default function SignInSide() {
               >
                 ĐĂNG NHẬP
               </Button>
-              {error &&<div className='error'>{error}</div>}
+              {error && <div className="error">{error}</div>}
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
@@ -111,8 +118,8 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link component={RouterLink} to="/SignUp"variant="body2">
-                    {"Hãy đăng ký tài khoản"}
+                  <Link component={RouterLink} to="/SignUp" variant="body2">
+                    {'Hãy đăng ký tài khoản'}
                   </Link>
                 </Grid>
               </Grid>

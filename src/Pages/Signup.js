@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,29 +15,22 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import { useSignup } from '../hooks/useSignup';
 
-
 const theme = createTheme();
 
 const SignUp = () => {
-  
-  const [firstname, setFirstname] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [educator, setIsEducator] = useState(false)
-  const {signup, error, isLoading} = useSignup()
+  const [firstname, setFirstname] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [educator, setIsEducator] = useState('');
+  const { signup, error, isLoading } = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    await signup(
-       firstname,
-       email, 
-       password,
-       educator
-       )
-    console.log(firstname,email,password,educator)
+
+    await signup(firstname, email, password, educator)
+      .then(alert('Đăng ký thành công'))
+      .then((window.location.href = '/login'));
   };
-  
 
   return (
     <ThemeProvider theme={theme}>
@@ -57,37 +50,41 @@ const SignUp = () => {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 3 }}
+          >
             <Grid container spacing={2}>
               <Grid item xs={12}>
-                 <TextField 
-                  name='first name'
+                <TextField
+                  name="first name"
                   label="Tên của bạn"
                   fullWidth
-                  onChange={(e) =>setFirstname(e.target.value)}
+                  onChange={(e) => setFirstname(e.target.value)}
                   value={firstname}
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  name='email'
+                  name="email"
                   type={'email'}
                   fullWidth
                   label="Email"
-                  onChange={(e) =>setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   value={email}
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  name='password'
+                  name="password"
                   fullWidth
                   type={'password'}
                   label="Password"
-                  onChange={(e) =>setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                   value={password}
                 />
-                
               </Grid>
               <Grid item xs={12}>
                 <Select
@@ -98,8 +95,8 @@ const SignUp = () => {
                   onChange={(e) => setIsEducator(e.target.value)}
                   value={educator}
                 >
-                    <MenuItem value="false">Student</MenuItem>
-                    <MenuItem value="true">Teacher</MenuItem>
+                  <MenuItem value="false">Student</MenuItem>
+                  <MenuItem value="true">Teacher</MenuItem>
                 </Select>
               </Grid>
             </Grid>
@@ -113,11 +110,11 @@ const SignUp = () => {
             >
               Đăng ký
             </Button>
-            {error && <div className='error'>{error}</div>}
+            {error && <div className="error">{error}</div>}
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link component={RouterLink} to="/"variant="body2">
-                  {"Bạn đã có tài khoản? Hãy đăng nhập"}
+                <Link component={RouterLink} to="/" variant="body2">
+                  {'Bạn đã có tài khoản? Hãy đăng nhập'}
                 </Link>
               </Grid>
             </Grid>
@@ -126,6 +123,6 @@ const SignUp = () => {
       </Container>
     </ThemeProvider>
   );
-}
+};
 
 export default SignUp;

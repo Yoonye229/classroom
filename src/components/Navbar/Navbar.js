@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import './Navbar.css'
 import { useLogout } from '../../hooks/useLogout'
 import { useAuthContext } from '../../hooks/useAuthContext'
-
-
+import Button from '../Buttons/ButtonAddClass'
+import '../Sidebara/css/ButtonAdd.css'
 
 export default function Navbar() {
     const {logout} = useLogout()
@@ -28,6 +28,7 @@ export default function Navbar() {
                     </ul>
                         {user && 
                         <div className='right-content'>
+                            <Button/>
                             <span>{user.email}</span>
                             <Link><button onClick={handleCick}>Đăng xuất</button></Link>
                         </div>
@@ -38,6 +39,7 @@ export default function Navbar() {
                                 <Link to='/signup'><>Đăng ký</></Link>
                             </div>
                         } 
+                        
                 </div>
                 
             </nav>

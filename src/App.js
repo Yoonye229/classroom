@@ -1,4 +1,12 @@
 import Home from './Pages/Home'
+import SignUp from './Pages/Signup'
+import SignInSide from './Pages/Login'
+import Courses from './components/Course/Courses'
+import ProFile from './Pages/proFile'
+import Course from './components/Course/Course'
+import MyCourse from './components/Course/MyCourse'
+
+
 
 import {BrowserRouter as Router , Routes , Route} from 'react-router-dom';
 //import course pages
@@ -13,7 +21,10 @@ function App()
               <Route path='/' element={<Home/>}/>
               <Route path='/login' element={<SignInSide/>}/>
               <Route path='/signup' element={<SignUp/>}/>
-              
+              <Route path='/profile' element={<ProFile/>}/>  
+              <Route path='/courses' element={<Courses/>}/>
+              <Route path='/course' element={<Course/>}/>
+              <Route path='/mycourse' element={<MyCourse/>}/>
             </Routes>
           </Router>
         

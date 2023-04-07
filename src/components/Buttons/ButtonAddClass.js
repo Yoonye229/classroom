@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
-import "./css/ButtonAdd.css";
+import '../Sidebara/css/ButtonAdd.css'
 import * as GrIcons from "react-icons/gr";
 import { SpatialTracking } from "@mui/icons-material";
 function AddCourseButton() {
@@ -43,6 +43,10 @@ function AddCourseButton() {
               <div className="Teacher">
                 <input name="description" type="text"></input>
                 <label for="">Giảng viên hướng dẫn</label>
+              </div>
+              <div className="malop">
+              <input name="description" type="text"></input>
+                <label for="">Mã lớp</label>
               </div>
             </div>
             <button className="btnAdd">Tạo</button>

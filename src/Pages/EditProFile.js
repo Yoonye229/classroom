@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
-import "../components/Sidebara/css/ButtonAdd.css";
+import "./css/EditProFile.css";
 import * as GrIcons from "react-icons/gr";
 
 function Edit() {
@@ -13,8 +13,8 @@ function Edit() {
 
   return (
     <div className="App">
-      <Button id="add" onClick={clickButton} data-toggle="modal" data-target="#exampleModalCenter">
-        <GrIcons.GrFormAdd />
+      <Button id="addProfile" onClick={clickButton} data-toggle="modal" data-target="#exampleModalCenter" >
+        Chỉnh sửa
       </Button>
      
       <div className="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

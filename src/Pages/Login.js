@@ -25,9 +25,9 @@ export default function SignInSide() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await login (email, password)
-    .then(setTimeout(() =>{
+    .then(
       alert("Đăng nhập thành công")
-    }),1000)
+    )
     .then(
       window.location.href = "/"
     )

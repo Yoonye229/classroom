@@ -1,9 +1,13 @@
 import React from 'react'
 import * as IoIcons from "react-icons/io";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import * as CiIcons from "react-icons/bs";
 import './css/MyCourse.css'
 import NewLesson from './NewLesson';
 const MyCourse = () => {
+  const handleClick = () =>{
+    window.location.href = "/lesson";
+  }
+  
   return (
     <div className='mycourse'>
       <div className='mycourse-left'>
@@ -37,8 +41,10 @@ const MyCourse = () => {
       <div className='mycourse-right'>
         <div className='mycourse-right-head'>
         <div className='mycourse-right-bor'>
-        <h2>Bài tập</h2>
-        <div> <FontAwesomeIcon icon="fa-solid fa-ellipsis-vertical" /> </div>
+        <h3>Bài tập</h3>
+        <div onClick={handleClick}>
+        <CiIcons.BsFillMenuButtonWideFill className='btnList '/>
+        </div>
         </div>
         <button className='btnComplete'>
          <span>Nộp</span> </button>

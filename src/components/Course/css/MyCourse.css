@@ -39,7 +39,6 @@
     width: 25px;
   }
   .editwork:hover{
-
     cursor: pointer;
     border: 1px solid white;
     
@@ -52,12 +51,28 @@
     border: 3px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15);
-    height: 130px;
+    height: 180px;
     width: 250px;
   }
   .mycourse-right-bor {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 40px;
+   
+   
+  }
+  .mycourse-right-head{
     margin-left: 10px;
     margin-right: 10px;
+  }
+  .btnList{
+    margin-top: 6px;
+    color: var(--main-color);
+    height: 20px;
+    width: 25px;
+  }
+  .btnList:hover{
+    cursor: pointer;
   }
   .btnComplete{
     width: 190px;

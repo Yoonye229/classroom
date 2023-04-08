@@ -1,0 +1,172 @@
+#retail{
+    font-style: normal;
+    color: black;
+    
+}
+#retail:hover{
+    color: white;
+}
+
+
+button:focus{
+    outline: none;
+
+}
+h4{
+    display: flex;
+    justify-content: flex-start;
+}
+.modal-content{
+    position: absolute;
+    width: 100%;
+    
+    padding: 1px 40px 16px 40px;
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    top:25%;
+  
+}
+ .modal-content .User{
+  margin-top: 20px;
+  position: relative;
+ }
+ .modal-content .User input{
+  width: 100%;
+  background: transparent;
+  color: rgb(75, 75, 122);
+  border: none;
+  border-bottom: 1px solid rgb(36, 36, 172);
+  outline: none;
+  padding: 10px 0;
+  font-size: 16px;
+}
+.modal-content .User label{
+  letter-spacing: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  font-size: 16px;
+  color: #bbb;
+  pointer-events: none;
+  transition:0.4s ease ;
+}
+.modal-content .User input:focus~label,
+.modal-content .User input:focus~label{
+  top: -20px;
+  color: rgb(36, 36, 172);
+  font-size: 12px;
+
+}
+.modal-content .Class{
+  position: relative;
+  margin-top: 20px;
+ }
+ .modal-content .Class input{
+  width: 100%;
+  background: transparent;
+  color: rgb(75, 75, 122);;
+  border: none;
+  border-bottom: 1px solid rgb(36, 36, 172);
+  outline: none;
+  padding: 10px 0;
+  font-size: 16px;
+}
+.modal-content .Class label{
+  letter-spacing: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  font-size: 16px;
+  color: #bbb;
+  pointer-events: none;
+  transition:0.4s ease ;
+}
+.modal-content .Class input:focus~label,
+.modal-content .Class input:focus~label{
+  top: -20px;
+  color: rgb(36, 36, 172);
+  font-size: 12px;
+
+}
+.modal-content .Teacher{
+  position: relative;
+  margin-top: 20px;
+ }
+ .modal-content .Teacher input{
+  width: 100%;
+  background: transparent;
+  color: rgb(75, 75, 122);;
+  border: none;
+  border-bottom: 1px solid rgb(36, 36, 172);
+  outline: none;
+  padding: 10px 0;
+  font-size: 16px;
+}
+.modal-content .Teacher label{
+  letter-spacing: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  font-size: 16px;
+  color: #bbb;
+  pointer-events: none;
+  transition:0.4s ease ;
+}
+.modal-content .Teacher input:focus~label,
+.modal-content .Teacher input:focus~label{
+  top: -20px;
+  color: rgb(36, 36, 172);
+  font-size: 12px;
+
+} 
+ .modal-content .btnAdd{
+  background-color: white; 
+  border: none;
+  color: rgb(36, 36, 172);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer; 
+}
+.modal-content .btnAdd:hover {  
+  opacity: 0.8;  
+} 
+.modal-content .malop{
+    margin-top: 20px;
+    position: relative;
+   }
+   .modal-content .malop input{
+    width: 100%;
+    background: transparent;
+    color: rgb(75, 75, 122);
+    border: none;
+    border-bottom: 1px solid rgb(36, 36, 172);
+    outline: none;
+    padding: 10px 0;
+    font-size: 16px;
+  }
+  .modal-content .malop label{
+    letter-spacing: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    font-size: 16px;
+    color: #bbb;
+    pointer-events: none;
+    transition:0.4s ease ;
+  }
+  .modal-content .malop input:focus~label,
+  .modal-content .malop input:focus~label{
+    top: -20px;
+    color: rgb(36, 36, 172);
+    font-size: 12px;
+  
+  }

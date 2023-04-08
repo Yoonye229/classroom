@@ -1,18 +1,69 @@
-import React, {useState}  from 'react'
+import React, {useState ,useRef}  from 'react'
 import './css/Course.css'
 import * as IoIcons from "react-icons/io";
 import Dropdown from 'react-bootstrap/Dropdown';
 import EditCourse  from './EditCourse';
 import DeleteCourse  from './DeleteCourse';
+const data = [
+  {
+    id: 1,
+    name: "IphoneX",
+    img:
+      "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-x-mau-xam-didongviet.jpg"
+  },
+  {
+    id: 2,
+    name: "Samsung Fold",
+    img:
+      "https://images.samsung.com/pk/smartphones/galaxy-z-fold3-5g/buy/zfold3_carousel_mainsinglekv_mo.jpg"
+  },
+  {
+    id: 3,
+    name: "Laptop Gaming",
+    img:
+      "https://cdn.techzones.vn/Data/Sites/1/News/3285/techzones-nhung-mau-laptop-gaming-choi-game-co-tan-nhiet-tot-nhat-tren-thi-truong.jpg"
+  }
+];
 const Course = () => {
   const handleClick =()=>
 {
     window.location.href = '/mycourse'
 } 
-const Deleteitem =()=>
-{
-  
-}
+const [products, setProducts] = useState(data);
+
+  //You can put all product information into diaglog
+  const [dialog, setDialog] = useState({
+    message: "",
+    isLoading: false,
+    //Update
+    nameProduct: ""
+  });
+  const idProductRef = useRef();
+  const handleDialog = (message, isLoading, nameProduct) => {
+    setDialog({
+      message,
+      isLoading,
+      //Update
+      nameProduct
+    });
+  };
+
+  const handleDelete = (id) => {
+    //Update
+    const index = data.findIndex((p) => p.id === id);
+
+    handleDialog("Are you sure you want to delete?", true, data[index].name);
+    idProductRef.current = id;
+  };
+
+  const areUSureDelete = (choose) => {
+    if (choose) {
+      setProducts(products.filter((p) => p.id !== idProductRef.current));
+      handleDialog("", false);
+    } else {
+      handleDialog("", false);
+    }
+  };
 const [popup, setPop] = useState(false);
   const clickButton = () => {
     setPop(!popup);
@@ -38,7 +89,7 @@ const [popup, setPop] = useState(false);
       </div> </Dropdown.Item>
         
         <div className='line'></div>
-        <Dropdown.Item className='dropitem' onClick={Deleteitem} > Xóa </Dropdown.Item>
+        <Dropdown.Item className='dropitem' onClick={handleDelete} > Xóa </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
         </div>

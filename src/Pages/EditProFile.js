@@ -14,7 +14,7 @@ function Edit() {
   return (
     <div className="App">
       <Button id="addProfile" onClick={clickButton} data-toggle="modal" data-target="#exampleModalCenter" >
-      <GrIcons.GrFormAdd />
+      Chỉnh sửa
       </Button>
      
       <div className="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

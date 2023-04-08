@@ -1,0 +1,17 @@
+
+.listwork{
+    display: flex;
+    flex-direction: wrap; 
+    margin-top: 20px;
+}
+
+.listwork-left{
+    border: 2px solid whitesmoke; 
+    height: 100%;
+}
+.lineColumn{
+    width:2px;  /* Line width */
+    background-color: whitesmoke; /* Line color */
+    height: 100%;
+    float: right;
+  }

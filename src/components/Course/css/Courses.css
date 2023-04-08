@@ -17,7 +17,7 @@
     border-radius: 20px;
     border: 2px solid whitesmoke;
      position: absolute;
-     top:50px;
+     margin-top:50px;
      left:30px ;
      display: flex;
      justify-content: center;
@@ -107,3 +107,4 @@
     height: 2px; 
     float: left;
   }
+ 

@@ -21,10 +21,10 @@ export default function Navbar() {
                     <h3 className='logo'>MAPK</h3>
 
                     <ul className='nav-links'>
-                        <Link><li>Trang chủ</li></Link>
-                        <Link><li>Lớp học</li></Link>
-                        <Link><li>Bài tập</li></Link>
-                        <Link><li>Team</li></Link>
+                        <Link to='/home'><li>Trang chủ</li></Link>
+                        <Link to='/courses'><li>Lớp học</li></Link>
+                        <Link to='/listlesson'><li>Bài tập</li></Link>
+                        <Link to='/aboutus'><li>Team</li></Link>
                     </ul>
                         {user && 
                         <div className='right-content'>

@@ -1,115 +1,62 @@
-import React, {useState} from 'react'
-import PropTypes from 'prop-types'
-import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogTitle from '@material-ui/core/DialogTitle'
-import Add from '@material-ui/icons/AddBox'
-import {makeStyles} from '@material-ui/core/styles'
-import {newLesson} from './api-course'
-import auth from './../auth/auth-helper'
 
-const useStyles = makeStyles(theme => ({
-    form: {
-        minWidth: 500
-    }
-}))
+import React, { useState } from "react";
+import './css/EditCourse.css'
+import * as AiIcons from "react-icons/ai"
+function NewLesson() {
+  const [popup, setPop] = useState(false);
+  const clickButton = () => {
+    setPop(!popup);
+  };
 
-export default function NewLesson(props) {
-  const classes = useStyles()
-  const [open, setOpen] = useState(false)
-  const [values, setValues] = useState({
-    title: '',
-    content: '',
-    resource_url: ''
-  })
-  
-  const handleChange = name => event => {
-    setValues({ ...values, [name]: event.target.value })
-  }
-  const clickSubmit = () => {
-    const jwt = auth.isAuthenticated()
-    const lesson = {
-      title: values.title || undefined,
-      content: values.content || undefined,
-      resource_url: values.resource_url || undefined
-    }
-    newLesson({
-      courseId: props.courseId
-    }, {
-      t: jwt.token
-    }, lesson).then((data) => {
-      if (data && data.error) {
-        setValues({...values, error: data.error})
-      } else {
-          props.addLesson(data)
-          setValues({...values, title: '',
-          content: '',
-          resource_url: ''})
-          setOpen(false)
-      }
-    })
-  }
-  const handleClickOpen = () => {
-    setOpen(true)
-  }
-
-  const handleClose = () => {
-    setOpen(false)
-  }
+ 
 
   return (
-    <div>
-      <Button aria-label="Add Lesson" color="primary" variant="contained" onClick={handleClickOpen}>
-        <Add/> &nbsp; New Lesson
-      </Button>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-      <div className={classes.form}>
-        <DialogTitle id="form-dialog-title">Add New Lesson</DialogTitle>
-        <DialogContent>
-          
-          <TextField
-            margin="dense"
-            label="Title"
-            type="text"
-            fullWidth
-            value={values.title} onChange={handleChange('title')}
-          /><br/>
-          <TextField
-            margin="dense"
-            label="Content"
-            type="text"
-            multiline
-            rows="5"
-            fullWidth
-            value={values.content} onChange={handleChange('content')}
-          /><br/>
-          <TextField
-            margin="dense"
-            label="Resource link"
-            type="text"
-            fullWidth
-            value={values.resource_url} onChange={handleChange('resource_url')}
-          /><br/>
-          
-        </DialogContent>
+    <div className="App">
+      <div id="retail" onClick={clickButton} data-toggle="modal" data-target="#exampleModalCenter">
+      <AiIcons.AiOutlineEdit className='editw'/>
+      </div>
+     
+      <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div className="modal-dialog modal-dialog-centered" role="document">
+    <div className="modal-content">
+      <div className="modal-header">
+        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+     
+      <div>
         
-        <DialogActions>
-          <Button onClick={handleClose} color="primary" variant="contained">
-            Cancel
-          </Button>
-          <Button onClick={clickSubmit} color="secondary" variant="contained">
-            Add
-          </Button>
-        </DialogActions>
-        </div>
-      </Dialog>
+   
+          
+            <div className="popup-header">
+              <h4>Thêm bài tập</h4>
+            </div>
+            <div className="User">
+              <input type="text" name="class_name" required="" />
+              <label htmlFor=""> Tên tiêu đề</label>
+              <div className="Teacher">
+                <input name="description" type="textarea"></input>
+                <label htmlFor="">Bài tập</label>
+              </div>
+              <div className="malop">
+              <input name="description" type="text"></input>
+                <label htmlFor="">Thời hạn</label>
+              </div>
+            </div>
+            <button className="btnAdd">Thêm</button>
+          </div>
+        
+      </div>
+      </div>
+      <div className="modal-footer">
+        
+      </div>
     </div>
-  )
+  </div>
+
+    
+  );
 }
-NewLesson.propTypes = {
-    courseId: PropTypes.string.isRequired,
-    addLesson: PropTypes.func.isRequired
-  }
+export default NewLesson;
+// tạo function click button chạy qua trang AddClass.js

@@ -142,3 +142,35 @@ h4{
 .modal-content .btnAdd:hover {  
   opacity: 0.8;  
 } 
+.modal-content .malop{
+  margin-top: 20px;
+  position: relative;
+ }
+ .modal-content .malop input{
+  width: 100%;
+  background: transparent;
+  color: rgb(75, 75, 122);
+  border: none;
+  border-bottom: 1px solid rgb(36, 36, 172);
+  outline: none;
+  padding: 10px 0;
+  font-size: 16px;
+}
+.modal-content .malop label{
+  letter-spacing: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  font-size: 16px;
+  color: #bbb;
+  pointer-events: none;
+  transition:0.4s ease ;
+}
+.modal-content .malop input:focus~label,
+.modal-content .malop input:focus~label{
+  top: -20px;
+  color: rgb(36, 36, 172);
+  font-size: 12px;
+
+}

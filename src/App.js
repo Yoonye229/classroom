@@ -5,7 +5,8 @@ import Courses from './components/Course/Courses'
 import ProFile from './Pages/proFile'
 import Course from './components/Course/Course'
 import MyCourse from './components/Course/MyCourse'
-
+import EditCourse from './components/Course/EditCourse'
+import DeleteCourse from './components/Course/DeleteCourse'
 
 
 import {BrowserRouter as Router , Routes , Route} from 'react-router-dom';
@@ -14,7 +15,7 @@ import {BrowserRouter as Router , Routes , Route} from 'react-router-dom';
 function App()
 {
   return(
-    <div class="App">
+    <div className="App">
           
           <Router>
             <Routes>              
@@ -25,6 +26,8 @@ function App()
               <Route path='/courses' element={<Courses/>}/>
               <Route path='/course' element={<Course/>}/>
               <Route path='/mycourse' element={<MyCourse/>}/>
+              <Route path='/editcourse' element={<EditCourse/>}/>
+              <Route path='/deletecourse' element={<DeleteCourse/>}/>
             </Routes>
           </Router>
         

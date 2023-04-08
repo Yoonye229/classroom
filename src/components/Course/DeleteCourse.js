@@ -1,62 +1,65 @@
-import React, {useState} from 'react'
-import PropTypes from 'prop-types'
-import IconButton from '@material-ui/core/IconButton'
-import Button from '@material-ui/core/Button'
-import DeleteIcon from '@material-ui/icons/Delete'
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogContentText from '@material-ui/core/DialogContentText'
-import DialogTitle from '@material-ui/core/DialogTitle'
-import auth from './../auth/auth-helper'
-import {remove} from './api-course.js'
 
-export default function DeleteCourse(props) {
-  const [open, setOpen] = useState(false)
-  
-  const jwt = auth.isAuthenticated()
-  const clickButton = () => {
-    setOpen(true)
-  }
-  const deleteCourse = () => {
-    remove({
-      courseId: props.course._id
-    }, {t: jwt.token}).then((data) => {
-      if (data.error) {
-        console.log(data.error)
-      } else {
-        setOpen(false)
-        props.onRemove(props.course)
-      }
-    })
-  }
-  const handleRequestClose = () => {
-    setOpen(false)
-  }
-    return (<span>
-      <IconButton aria-label="Delete" onClick={clickButton} color="secondary">
-        <DeleteIcon/>
-      </IconButton>
-
-      <Dialog open={open} onClose={handleRequestClose}>
-        <DialogTitle>{"Delete "+props.course.name}</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Confirm to delete your course {props.course.name}.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleRequestClose} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={deleteCourse} color="secondary" autoFocus="autoFocus">
-            Confirm
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </span>)
+function DeleteCourse({ message, onDialog, nameProduct }) {
+  return (
+    <div
+      style={{
+        position: "fixed",
+        top: "0",
+        left: "0",
+        right: "0",
+        bottom: "0",
+        backgroundColor: "rgba(0,0,0,0.5)"
+      }}
+      onClick={() => onDialog(false)}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%,-50%)",
+          background: "white",
+          padding: "20px",
+          borderRadius: "10px"
+        }}
+      >
+        <h3 stlye={{ color: "#111", fontSize: "16px" }}>{message}</h3>
+        <h1 style={{ color: "blue", fontSize: "24px" }}>{nameProduct}</h1>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <button
+            onClick={() => onDialog(true)}
+            style={{
+              background: "red",
+              color: "white",
+              padding: "10px",
+              marginRight: "4px",
+              border: "none",
+              cursor: "pointer"
+            }}
+          >
+            Yes
+          </button>
+          <button
+            onClick={() => onDialog(false)}
+            style={{
+              background: "green",
+              color: "white",
+              padding: "10px",
+              marginLeft: "4px",
+              border: "none",
+              cursor: "pointer"
+            }}
+          >
+            No
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
-DeleteCourse.propTypes = {
-  course: PropTypes.object.isRequired,
-  onRemove: PropTypes.func.isRequired
-}
+export default DeleteCourse;

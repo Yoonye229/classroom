@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const validator = require('validator');
-const default_avatar_url = '../assets/images';
+const default_avatar_url = '../assets/images/default.png';
 
 const Schema = mongoose.Schema;
 
@@ -20,7 +20,6 @@ const userSchema = new Schema({
   },
   educator: {
     type: Boolean,
-    default: false,
   },
   avatar: {
     type: String,

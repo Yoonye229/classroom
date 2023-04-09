@@ -1,7 +1,6 @@
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 
-
 const createToken = (_id) => {
   return jwt.sign({ _id: _id }, process.env.SECRET, { expiresIn: '3d' });
 };
@@ -14,8 +13,8 @@ const signinUser = async (req, res) => {
 
     //create a token
     const token = createToken(user._id);
-
-    res.status(200).json({ email, token });
+    const id = user._id;
+    res.status(200).json({ user });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -36,14 +35,32 @@ const signupUser = async (req, res) => {
   }
 };
 //get current user
+
+const verifyToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) {
+    return res.status(401).send('Access Denied');
+  }
+
+  try {
+    const verified = jwt.verify(token, process.env.SECRET);
+    req.user = verified;
+    next();
+  } catch (err) {
+    res.status(400).send('Invalid Token');
+  }
+};
+
 const getCurrentUser = async (req, res) => {
   try {
     // Find user by their ID in the JWT token payload
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user._id);
 
     // If user doesn't exist, return an error
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(404).json({ message: 'User not found' });
     }
 
     // Otherwise, return the user information
@@ -60,14 +77,15 @@ const getCurrentUser = async (req, res) => {
 
 //Find user
 const findUser = async (req, res) => {
-  const { firstname, email } = req.body;
+  const email = req.body;
   try {
-    const user = await User.findByIdAnd(req.params._id, {
-      firstname: firstname,
-      email : email,
+    const user = await User.findOne(req.user.email, {
+      emai: email,
     });
-
-    res.status(200).json({ user }).then(res.rederection('/profile'));
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.status(200).json(user);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -75,12 +93,11 @@ const findUser = async (req, res) => {
 
 //Edit an user
 const editUser = async (req, res) => {
-  const { firstname, password, educator } = req.body;
+  const { firstname, educator } = req.body;
 
   try {
-    const user = User.findByIdAndUpdate(User.params._id, {
+    const user = User.findByIdAndUpdate(req.user._id, {
       firstname: firstname,
-      password: password,
       educator: educator,
     });
 
@@ -91,13 +108,13 @@ const editUser = async (req, res) => {
 };
 
 const editAvatar = async (req, res) => {
-  const { avatarUrl } = req.body;
+  const { avatar } = req.body;
   try {
-    const avatar = await User.findByIdAndUpdate(User._id, {
-      avatar: avatarUrl,
+    const avatarUrl = await User.findByIdAndUpdate(User._id, {
+      avatar: avatar,
     });
 
-    res.status(200).json({ avatar });
+    res.status(200).json({ avatarUrl });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -106,6 +123,7 @@ module.exports = {
   signupUser,
   signinUser,
   editUser,
+  verifyToken,
   getCurrentUser,
   findUser,
   editAvatar,

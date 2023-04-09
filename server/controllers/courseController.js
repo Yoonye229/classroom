@@ -2,11 +2,16 @@ const Course = require('../models/courseModel');
 
 //Create a new course
 const createCourse = async (req, res) => {
-  const { name, desc, teacher, dateCreated } = req.body();
+  const { coursename, desc, teacher, coursekey } = req.body;
   try {
-    await Course.push(name, desc);
+    const course = await Course.create({
+      coursename: coursename,
+      desc: desc,
+      teacher: teacher,
+      coursekey: coursekey
+    });
 
-    res.status(200).json({ name, desc, teacher, dateCreated });
+    res.status(200).json(course);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -14,14 +19,36 @@ const createCourse = async (req, res) => {
 
 //Find a course
 const findACourse = async (req, res) => {
-  const { name, desc, teacher } = req.body();
+  const { courename, desc, teacher } = req.body;
   try {
-    await Course.findById(req.params._id);
+    await Course.findById(req.course._id);
 
-    res.status(200).json({ name, desc, teacher });
+    res.status(200).json({
+      courename: courename,
+      desc: desc,
+      teacher: teacher,
+    });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 
-module.exports = { createCourse, findACourse };
+//
+
+
+
+const createPost = async (req, res) => {
+  const { title, content, folder } = req.body;
+  try {
+    const course = await Course.create({
+      title: title,
+      content: content,
+      folder: folder
+    });
+
+    res.status(200).json(course);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+module.exports = { createCourse, findACourse, createPost };

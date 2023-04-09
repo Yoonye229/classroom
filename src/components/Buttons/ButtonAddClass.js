@@ -1,10 +1,49 @@
 import { Button } from "@mui/material";
-import React, { useState } from "react";
+import config from '../../config.json';
+import { useNavigate ,useParams } from "react-router-dom";
+import React, { useState , useEffect } from "react";
 import '../Sidebara/css/ButtonAdd.css'
 import * as GrIcons from "react-icons/gr";
-import { SpatialTracking } from "@mui/icons-material";
+import axios from "axios";
 function AddCourseButton() {
+  const { id } = useParams();
+  const navigate = useNavigate();
   const [popup, setPop] = useState(false);
+  const [post, setPost] = useState({
+    courename: " ",
+    teacher: " ",
+    coursekey:" ",
+  });
+  // const fetchPosts = async () => {
+  //   const res = await axios.get(config.apiUrl);
+  //   setCoursename(res.data);
+  //   setTeachername(res.data);
+  //   setCoursekey(res.data);
+  // };
+
+  useEffect(() => {
+    if (!id) return;
+    const fetchPost = async () => {
+      const { data } = await axios.get(`${config.apiUrl}/${id}`);
+      setPost(data);
+    };
+    fetchPost();
+  }, []);
+  const handleChange = (e) => {
+    const postClone = { ...post };
+    postClone[e.target.name] = e.target.value;
+    setPost(postClone)
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (id === "new") {
+      await axios.post(config.apiUrl, post);
+      return navigate("/");
+    } else {
+      await axios.put(`${config.apiUrl}/${id}`, post);
+      return navigate("/");
+    }
+  };
   const clickButton = () => {
     setPop(!popup);
   };
@@ -17,11 +56,11 @@ function AddCourseButton() {
         <GrIcons.GrFormAdd />
       </Button>
      
-      <div className="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div className="modal-dialog modal-dialog-centered" role="document">
     <div className="modal-content">
       <div className="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -34,27 +73,27 @@ function AddCourseButton() {
               <h4>Thêm mới lớp học</h4>
             </div>
             <div className="User">
-              <input type="text" name="class_name" required="" />
-              <label for=""> Tên lớp</label>
-              <div className="Class">
-                <input type="text" name="num_students" />
-                <label for="">Sĩ số</label>
-              </div>
+              <input type="text" name="class_name" required="" value={post.courename}
+            onChange={(e) => setPost(e.target.value)} />
+              <label htmlFor=""> Tên lớp</label>
+           
               <div className="Teacher">
-                <input name="description" type="text"></input>
-                <label for="">Giảng viên hướng dẫn</label>
+                <input name="description" type="text" value={post.teacher}
+           onChange={(e) => setPost(e.target.value)}></input>
+                <label htmlFor="">Giảng viên hướng dẫn</label>
               </div>
               <div className="malop">
-              <input name="description" type="text"></input>
-                <label for="">Mã lớp</label>
+              <input name="description" type="text" value={post.coursekey}
+            onChange={(e) => setPost(e.target.value)} ></input>
+                <label htmlFor="">Mã lớp</label>
               </div>
             </div>
-            <button className="btnAdd">Tạo</button>
+            <button className="btnAdd" onClick={handleSubmit} >Tạo</button>
           </div>
         
       </div>
       </div>
-      <div class="modal-footer">
+      <div className="modal-footer">
         
       </div>
     </div>

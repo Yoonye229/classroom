@@ -1,41 +1,33 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
+const UserModel = require('../models/userModel');
 
-const LessonSchema = new mongoose.Schema({
-    title: String,
-    content: String,
-    resource: String
-})
+const Schema = mongoose.Schema;
 
-const Lesson = mongoose.model('Lesson', LessonSchema)
-const CourseSchema = new mongoose.Schema({
-    name:{
-        type: String,
-        trim: true,
-        required: 'Name is required'
-    },
-    image:{
-        data: Buffer,
-        contentType: String
-    },
-    description:{
-        type: String,
-        trim: true
-    },
-    category:{
-        type: String,
-        required: 'Category is required'
-    },
-    updated:Date,
-    created:{
-        type: Date,
-        default: Date.now
-    },
-    instructor:{type: mongoose.Schema.ObjectId, ref: 'User'},
-    published:{
-        type: Boolean,
-        default: false
-    },
-    lessons:{LessonSchema}
-})
+const postSchemma = new Schema({
+  title: String,
+  content: String,
+  folder: String,
+});
+mongoose.model('Post', postSchemma);
+const courseSchemma = new Schema({
+  courename: {
+    type: String,
+    require: true,
+  },
+  desc: {
+    type: String,
+    require: true,
+  },
+  coursekey:{
+    type: String,
+    require: true
+  },
+  teacher: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  dateCreated: {
+    type: Date,
+    default: Date.now(),
+  },
+  post: postSchemma,
+});
 
-export default mongoose.model('Course',CourseSchema)
+module.exports = mongoose.model('course', courseSchemma);

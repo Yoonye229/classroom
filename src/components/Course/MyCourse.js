@@ -2,7 +2,7 @@ import React from 'react'
 import * as IoIcons from "react-icons/io";
 import * as CiIcons from "react-icons/bs";
 import './css/MyCourse.css'
-import NewLesson from './NewLesson';
+import NewLesson from './NewLesson.js';
 const MyCourse = () => {
   const handleClick = () =>{
     window.location.href = "/lesson";
@@ -35,7 +35,13 @@ const MyCourse = () => {
           </div>
           <div className='line'></div>
           <div className='mycourse-left-foot'>
-            <label>Nhan xet</label>
+            <div className='comment'>
+            <input id='btnComment' type='text' placeholder={('Thêm nhận xét')}/>
+            </div>
+            <div className='fullcomment'>
+                <span>Tên :</span><br/>
+                <span>Comment :</span>
+            </div>
           </div>
       </div>
       <div className='mycourse-right'>

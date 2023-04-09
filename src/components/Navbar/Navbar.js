@@ -21,7 +21,7 @@ export default function Navbar() {
                     <h3 className='logo'>MAPK</h3>
 
                     <ul className='nav-links'>
-                        <Link to='/home'><li>Trang chủ</li></Link>
+                        <Link to='/homemain'><li>Trang chủ</li></Link>
                         <Link to='/courses'><li>Lớp học</li></Link>
                         <Link to='/listlesson'><li>Bài tập</li></Link>
                         <Link to='/aboutus'><li>Team</li></Link>

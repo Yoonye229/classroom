@@ -11,6 +11,7 @@ import Lesson from './components/Course/Lesson'
 import ListLesson from './components/Course/ListLesson'
 import SideBar from './components/Navbar/Navbar'
 import  About from './Pages/About_us'
+import Homemain from './Pages/Homemain'
 import {BrowserRouter as Router , Routes , Route} from 'react-router-dom';
 //import course pages
 
@@ -22,7 +23,7 @@ function App()
           <Router>
             <SideBar/>
             <Routes>              
-              <Route path='/' element={<Home/>}/>
+              <Route path='/homemain' element={<Homemain/>}/>
               <Route path='/login' element={<SignInSide/>}/>
               <Route path='/signup' element={<SignUp/>}/>
               <Route path='/profile' element={<ProFile/>}/>  

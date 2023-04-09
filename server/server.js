@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const { default: mongoose } = require('mongoose')
 const userRoute = require('./routes/userRoute')
+const courseRoute = require('./routes/courseRoute')
 
                 //midleware//
 app.use(express.json())
@@ -12,7 +13,7 @@ app.use((req, res, next)=>{
 })
                 //Route//
 app.use('/api/user',userRoute)
-
+app.use('/api/course',courseRoute)
 mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGO_URI)
 .then(() =>{

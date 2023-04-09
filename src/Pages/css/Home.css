@@ -2,3 +2,14 @@ body{
     margin: 0;
     padding: 0;
 }
+.w-100{
+    width: auto;
+    height: 100%;
+}
+.visually-hidden{
+    opacity:0;
+}
+.carousel-control-next-icon , .carousel-control-prev-icon{
+    opacity: 0;
+
+}

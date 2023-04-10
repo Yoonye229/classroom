@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './Navbar.css'
 import { useLogout } from '../../hooks/useLogout'
 import { useAuthContext } from '../../hooks/useAuthContext'
-import Button from '../Buttons/ButtonAddClass'
+
 import '../Sidebara/css/ButtonAdd.css'
 
 export default function Navbar() {
@@ -15,7 +15,7 @@ export default function Navbar() {
     }
     return(
         
-        <header>
+        <header className='heade'>
             <nav className='navbar'>
                 <div className='container'>
                     <h3 className='logo'>MAPK</h3>
@@ -28,7 +28,7 @@ export default function Navbar() {
                     </ul>
                         {user && 
                         <div className='right-content'>
-                            <Button/>
+                           
                             <span>{user.email}</span>
                             <Link><button onClick={handleCick}>Đăng xuất</button></Link>
                         </div>

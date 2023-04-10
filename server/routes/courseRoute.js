@@ -1,29 +1,21 @@
-import { Post } from "../models/course.model";
-const express = require('express')
-;
+const express = require('express');
 const {
   createCourse,
-  findACourse,EditCourse,createPost
+  findCourse,
+  editCourse,
+  findAllCourse,
+  deleteCourse,
 } = require('../controllers/course.controller');
 const router = express.Router();
 
 router.post('/create', createCourse);
-router.post("/", async (req, res) => {
-  try {
-    const post = new Post({
-      coursename: req.body.coursename,
-      content: req.body.teacher,
-    });
-    await post.save();
 
-    res.send(post);
-  } catch (error) {
-    res.status(500).send(error);
-  }
-});
-router.get('/findcourse/:id', findACourse);
+router.delete('/:id', deleteCourse)
 
-router.put('/edit',EditCourse);
-router.post('/createPost', createPost)
+router.get('/:id', findCourse);
+
+router.get('/', findAllCourse);
+
+router.patch('/:id', editCourse)
 
 module.exports = router;

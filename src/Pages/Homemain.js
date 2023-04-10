@@ -49,7 +49,7 @@ const Homemain = () => {
         </p>
       </MDBCarouselItem>
     </MDBCarousel>
-  );
+  
 
     </div>
   )

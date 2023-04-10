@@ -10,11 +10,12 @@ const signinUser = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.signin(email, password);
-
-    //create a token
-    const token = createToken(user._id);
-    const id = user._id;
-    res.status(200).json({ user });
+    // const firstname = user.firstname
+    // const educator = user.educator
+    // //create a token
+    // const token = createToken(user._id)
+    // const id = user._id;
+    res.status(200).json(user);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -74,7 +75,6 @@ const getCurrentUser = async (req, res) => {
     res.status(500).send('Server Error');
   }
 };
-
 //Find user
 const findUser = async (req, res) => {
   const email = req.body;
@@ -90,15 +90,13 @@ const findUser = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-
 //Edit an user
 const editUser = async (req, res) => {
-  const { firstname, educator } = req.body;
+  const { id } = req.params;
 
   try {
-    const user = User.findByIdAndUpdate(req.user._id, {
-      firstname: firstname,
-      educator: educator,
+    const user = User.findByIdAndUpdate({id: id},{
+      ...req.body
     });
 
     res.status(200).json({ user });
@@ -107,18 +105,18 @@ const editUser = async (req, res) => {
   }
 };
 
-const editAvatar = async (req, res) => {
-  const { avatar } = req.body;
-  try {
-    const avatarUrl = await User.findByIdAndUpdate(User._id, {
-      avatar: avatar,
-    });
+// const editAvatar = async (req, res) => {
+//   const { avatar } = req.body;
+//   try {
+//     const avatarUrl = await User.findByIdAndUpdate(User._id, {
+//       avatar: avatar,
+//     });
 
-    res.status(200).json({ avatarUrl });
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-};
+//     res.status(200).json({ avatarUrl });
+//   } catch (error) {
+//     res.status(400).json({ error: error.message });
+//   }
+// };
 module.exports = {
   signupUser,
   signinUser,
@@ -126,5 +124,5 @@ module.exports = {
   verifyToken,
   getCurrentUser,
   findUser,
-  editAvatar,
+
 };

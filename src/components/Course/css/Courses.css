@@ -2,6 +2,22 @@
    --main-color:rgb(36, 36, 172);
 }
 
+.a {
+   width: 100px;
+   
+}
+.full{
+   width: 100%;
+}
+.courses_full{
+   padding:0px 0px 50px 50px ;
+   height: 100%;
+   display: flex;
+   align-content: center;
+   gap: 30px;
+   flex-wrap: wrap;
+   
+}
  label{
     position: relative;
     display: flex;
@@ -13,16 +29,16 @@
     color: white;
  }
  .courses{
-    
+   width: calc(30% - 20px);
     border-radius: 20px;
     border: 2px solid whitesmoke;
-     position: absolute;
+     
      margin-top:50px;
-     left:30px ;
+     margin-left:30px ;
      display: flex;
      justify-content: center;
      align-items: flex-start;
-     width: 25%;   
+       
      flex-direction: column;
     
  }

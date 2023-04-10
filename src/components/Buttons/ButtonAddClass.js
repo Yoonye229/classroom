@@ -2,15 +2,32 @@ import { Button } from '@mui/material';
 import React, { useState } from 'react';
 import './css/ButtonAdd.css';
 import * as GrIcons from 'react-icons/gr';
-import { SpatialTracking } from '@mui/icons-material';
+import {useCreateCourse} from '../../hooks/useCreateCourse' 
+
+
+
 function AddCourseButton() {
   const [popup, setPop] = useState(false);
   const clickButton = () => {
     setPop(!popup);
   };
+  const {create, isloading, error} = useCreateCourse()
+  const [coursename, setCourseName] = useState('')
+  const [coursekey, setCourseKey] = useState('')
+  const [desc, setDesc] = useState('')
+  
 
-  // window.location.href="/AddClass";
-
+  const createCourse = async () =>{
+    await create(
+      coursename,
+      coursekey,
+      desc
+    )
+    .catch(error)
+    .finally(alert(`Lớp ${coursename} đã được tạo`))
+    
+  }
+  
   return (
     <div className="App">
       <Button
@@ -25,7 +42,7 @@ function AddCourseButton() {
       <div
         className="modal fade"
         id="exampleModalCenter"
-        tabindex="-1"
+        tabIndex="-1"
         role="dialog"
         aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true"
@@ -35,35 +52,51 @@ function AddCourseButton() {
             <div className="modal-header">
               <button
                 type="button"
-                class="close"
+                className="close"
                 data-dismiss="modal"
                 aria-label="Close"
               >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-
-            <div>
+            <form onSubmit={createCourse}>
+                <div>
               <div className="popup-header">
                 <h4>Thêm mới lớp học</h4>
               </div>
               <div className="User">
-                <input type="text" name="class_name" required="" />
-                <label for=""> Tên lớp</label>
+                <input type="text" 
+                  
+                  onChange={(e) => setCourseName(e.target.value)}
+                  value={coursename}
+                />
+                <label htmlFor=""> Tên lớp</label>
                 <div className="Class">
-                  <input type="text" name="num_students" />
-                  <label for="">Sĩ số</label>
+                  <input type="text" name="num_students" 
+                    
+                    onChange={(e) => setDesc(e.target.value)}
+                    value={desc}
+                  />
+                  <label htmlFor="">Mô tả</label>
                 </div>
                 <div className="Teacher">
-                  <input name="description" type="text"></input>
-                  <label for="">Giảng viên hướng dẫn</label>
+                  <input name="description" type="text"
+                    
+                    onChange={(e) => setCourseKey(e.target.value)}
+                    value={coursekey}
+                  ></input>
+                  <label htmlFor="">Key</label>
                 </div>
               </div>
-              <button className="btnAdd">Tạo</button>
+              <button className="btnAdd" type='submit' disabled={isloading}>Tạo</button>
             </div>
+            </form>
+            
+            
+            
           </div>
         </div>
-        <div class="modal-footer"></div>
+        <div className="modal-footer"></div>
       </div>
     </div>
   );

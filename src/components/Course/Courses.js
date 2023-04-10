@@ -1,104 +1,69 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import { Link } from 'react-router-dom';
-import auth from './../auth/auth-helper';
-import Enroll from './../enrollment/Enroll';
+import './css/Courses.css';
+import * as MdIcons from 'react-icons/md';
 
-const useStyles = makeStyles((theme) => ({
-  title: {
-    padding: `${theme.spacing(3)}px ${theme.spacing(2.5)}px ${theme.spacing(
-      2
-    )}px`,
-    color: theme.palette.openTitle,
-  },
-  media: {
-    minHeight: 400,
-  },
-  gridList: {
-    width: '100%',
-    minHeight: 200,
-    padding: '16px 0 0px',
-  },
-  tile: {
-    textAlign: 'center',
-    border: '1px solid #cecece',
-    backgroundColor: '#04040c',
-  },
-  image: {
-    height: '100%',
-  },
-  tileBar: {
-    backgroundColor: 'rgba(0, 0, 0, 0.85)',
-    textAlign: 'left',
-  },
-  tileTitle: {
-    fontSize: '1.1em',
-    marginBottom: '5px',
-    color: '#fffde7',
-    display: 'block',
-  },
-  action: {
-    margin: '0 10px',
-  },
-}));
+const Courses = () => {
+  const [avatar, setAvatar] = useState();
+  useEffect(() => {
+    return () => {
+      avatar && URL.revokeObjectURL(avatar.preview);
+    };
+  }, [avatar]);
+  const handlePreviewAvatar = (e) => {
+      const file = e.target.files[0];
+      file.preview = URL.createObjectURL(file);
 
-export default function Courses(props) {
-  const classes = useStyles();
-  const findCommon = (course) => {
-    return !props.common.find((enrolled) => {
-      return enrolled.course._id == course._id;
-    });
-  };
+      setAvatar(file);
+  }
+
+  
+  //Fetch data        
+  const [courses, setCourses] = useState(null)
+
+  useEffect(() => {
+    const fetchCourse = async() =>{
+      const response = await fetch('/api/course/')
+      const json = await response.json()
+
+      if(response.ok){
+        setCourses(json);
+      }
+    }
+    fetchCourse()
+  },[])
+ 
   return (
-    <GridList cellHeight={220} className={classes.gridList} cols={2}>
-      {props.courses.map((course, i) => {
-        return (
-          findCommon(course) && (
-            <GridListTile
-              className={classes.tile}
-              key={i}
-              style={{ padding: 0 }}
-            >
-              <Link to={'/course/' + course._id}>
-                <img
-                  className={classes.image}
-                  src={'/api/courses/photo/' + course._id}
-                  alt={course.name}
-                />
-              </Link>
-              <GridListTileBar
-                className={classes.tileBar}
-                title={
-                  <Link
-                    to={'/course/' + course._id}
-                    className={classes.tileTitle}
-                  >
-                    {course.name}
-                  </Link>
-                }
-                subtitle={<span>{course.category}</span>}
-                actionIcon={
-                  <div className={classes.action}>
-                    {auth.isAuthenticated() ? (
-                      <Enroll courseId={course._id} />
-                    ) : (
-                      <Link to="/signin">Sign in to Enroll</Link>
-                    )}
-                  </div>
-                }
-              />
-            </GridListTile>
-          )
-        );
-      })}
-    </GridList>
+    <div className="courses-full">
+      { courses && courses.map((course) =>(
+      <div key={course._id}> 
+        <div className="courses-head">
+          <label><strong> Ten lop: </strong>{course.coursename}</label>
+          <label><strong> Mo ta: </strong>{course.desc}</label>
+        </div>
+        <div className="courses-img">
+      <input type={"file"} className="myfile1" onChange={handlePreviewAvatar}/>
+      {avatar && (
+      <img src={avatar.preview} alt=""     />)}
+      
+            </div>
+    
+      <div className="courses-body">
+          <label> thong bao</label>
+      </div>
+    
+    <div className='line'></div>
+        <div className='courses-footer'>
+          <button id='homework'>
+          <MdIcons.MdOutlineHomeWork className='iconourse'/>
+          </button>
+        </div>
+      </div>
+      ))}
+      { !courses &&
+        <div className='loading'></div>
+      }
+    </div>
   );
-}
-
-Courses.propTypes = {
-  courses: PropTypes.array.isRequired,
 };
+
+export default Courses;

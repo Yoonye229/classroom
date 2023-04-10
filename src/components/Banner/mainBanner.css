@@ -1,12 +1,14 @@
 .hero {
   height: 100vh;
   text-align: center;
-  align-items: center ;
+  align-items: center;
 }
-.hero h2{
+.hero h2 {
   padding-top: 200px;
   font-size: 500;
-
+}
+.hero h4{
+  margin-left: 550px;
 }
 .btn-login {
   margin-top: 50px;
@@ -24,4 +26,3 @@
   font: bolder;
   border: 1px solid #333;
 }
-

@@ -28,8 +28,12 @@ const SignUp = () => {
     e.preventDefault();
 
     await signup(firstname, email, password, educator)
-      .then(alert('Đăng ký thành công'))
-      .then((window.location.href = '/login'));
+
+    if(signup){
+      alert("Đăng ký thành công")
+    }else{
+      console.log(error);
+    }
   };
 
   return (

@@ -15,7 +15,6 @@ import Typography from '@mui/material/Typography';
 import { useLogin } from '../hooks/useLogin';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-
 const theme = createTheme();
 
 export default function SignInSide() {
@@ -25,11 +24,8 @@ export default function SignInSide() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await login(email, password)
-      .then(
-          alert('Đăng nhập thành công')
-      )
-      .then((window.location.href = '/'))
       .catch(error)
+      .then(alert('Đăng nhập thành công'))
   };
 
   return (

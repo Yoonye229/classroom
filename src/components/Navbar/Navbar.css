@@ -40,14 +40,14 @@ li {
   cursor: pointer;
   text-transform: capitalize;
 }
-.nav-auth span{
-  
+.nav-auth span {
   color: #000;
   font-size: large;
 }
 
 .nav-auth button {
   margin-left: 10px;
+  margin-right: 10px;
   width: 90px;
   border-radius: 5px;
   background-color: #333;

@@ -27,11 +27,11 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await signup(firstname, email, password, educator)
+    await signup(firstname, email, password, educator);
 
-    if(signup){
-      alert("Đăng ký thành công")
-    }else{
+    if (signup) {
+      alert('Đăng ký thành công');
+    } else {
       console.log(error);
     }
   };

@@ -1,88 +1,82 @@
-#addProfile{
+#addProfile {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
-#addProfile svg{
+#addProfile svg {
   font-size: 30px;
 }
 #addProfile {
-  color: #FFF;
+  color: #fff;
   background-color: rgb(36, 36, 172);
   display: block;
   text-align: center;
-  
-  
 }
-button:focus{
+button:focus {
   outline: none;
-
 }
-h4{
+h4 {
   display: flex;
   justify-content: flex-start;
 }
-.modal-content{
+.modal-content {
   position: absolute;
   width: 100%;
-  
+
   padding: 1px 40px 16px 40px;
   background: white;
   border-radius: 10px;
   text-align: center;
-  top:25%;
-
+  top: 25%;
 }
-.modal-content .User{
-margin-top: 20px;
-position: relative;
+.modal-content .User {
+  margin-top: 20px;
+  position: relative;
 }
-.modal-content .User input{
-width: 100%;
-background: transparent;
-color: rgb(75, 75, 122);
-border: none;
-border-bottom: 1px solid rgb(36, 36, 172);
-outline: none;
-padding: 10px 0;
-font-size: 16px;
+.modal-content .User input {
+  width: 100%;
+  background: transparent;
+  color: rgb(75, 75, 122);
+  border: none;
+  border-bottom: 1px solid rgb(36, 36, 172);
+  outline: none;
+  padding: 10px 0;
+  font-size: 16px;
 }
-.modal-content .User label{
-letter-spacing: 2px;
-position: absolute;
-top: 0;
-left: 0;
-padding: 10px;
-font-size: 16px;
-color: transparent;
-pointer-events: none;
-transition:0.4s ease ;
+.modal-content .User label {
+  letter-spacing: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  font-size: 16px;
+  color: transparent;
+  pointer-events: none;
+  transition: 0.4s ease;
 }
-.modal-content .User input:focus~label,
-.modal-content .User input:focus~label{
-top: -20px;
-color: rgb(36, 36, 172);
-font-size: 12px;
-
+.modal-content .User input:focus ~ label,
+.modal-content .User input:focus ~ label {
+  top: -20px;
+  color: rgb(36, 36, 172);
+  font-size: 12px;
 }
 
-.modal-content .btnAdd{
-background-color: white; 
-border: none;
-color: rgb(36, 36, 172);
-padding: 15px 32px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;
-margin: 4px 2px;
-cursor: pointer; 
+.modal-content .btnAdd {
+  background-color: white;
+  border: none;
+  color: rgb(36, 36, 172);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
-.modal-content .btnAdd:hover {  
-opacity: 0.8;  
-} 
-.modal-content select{
+.modal-content .btnAdd:hover {
+  opacity: 0.8;
+}
+.modal-content select {
   width: 200px;
   height: 20px;
   margin-top: 25px;

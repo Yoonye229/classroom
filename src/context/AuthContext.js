@@ -8,10 +8,11 @@ export const authReducer = (state, action) => {
     case 'LOGOUT':
       return { user: null };
     case 'UPDATE':
-      return { ...state, user: {
-        ...state.user,
-        ...action.payload
-      } }  
+      return {
+        user: state.courses.filter((u) =>
+          u._id === action.payload._id ? action.payload._id : u
+        ),
+      };
     default:
       return state;
   }

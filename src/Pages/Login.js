@@ -25,7 +25,9 @@ export default function SignInSide() {
     e.preventDefault();
     await login(email, password)
       .catch(error)
-      .then(alert('Đăng nhập thành công'))
+      .then(setTimeout(()=>{
+        window.location.href = '/courses'
+      },1000));
   };
 
   return (

@@ -1,12 +1,12 @@
 import React from 'react';
+import Homemain from './HomeMain';
 
-import MainBanner from '../components/Banner/mainBanner';
 import './css/Home.css';
 export default function Home() {
   return (
     <React.Fragment>
       <div className="body">
-        <MainBanner />
+        <Homemain />
       </div>
     </React.Fragment>
   );
